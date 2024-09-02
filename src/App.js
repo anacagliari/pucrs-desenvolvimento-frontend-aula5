@@ -1,9 +1,8 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import tarefas from './Data/task';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan, faPen } from '@fortawesome/free-solid-svg-icons';
-/* Instalei do site https://docs.fontawesome.com/web/use-with/react/, para poder utilizar icones diferentes e importei eles acima :
-    npm i --save @fortawesome/react-fontawesome@latest     |       npm i --save @fortawesome/free-solid-svg-icons */
+/* Instalei do site https://docs.fontawesome.com/web/use-with/react/, para poder utilizar icones diferentes e importei eles acima :    npm i --save @fortawesome/react-fontawesome@latest     |       npm i --save @fortawesome/free-solid-svg-icons */
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
@@ -25,13 +24,13 @@ export default function App() {
         const novaListaDeTarefas = listaDeTarefas.filter(tarefa => tarefa.id !== id)
         setListasDeTarefas(novaListaDeTarefas)
     }
-
+/*
     function atualizaTarefaPorID() {
         const novaLista = [...listaDeTarefas].filter(tarefa => tarefa.id !== atualizaTarefa.id)
         const listaAtualizada = [...novaLista, atualizaTarefa]
         setListasDeTarefas(listaAtualizada)
     }
-
+*/
     function atualizaTarefaPorID() {
         const listaAtualizada = listaDeTarefas.map(tarefa => 
             tarefa.id === atualizaTarefa.id ? atualizaTarefa : tarefa
@@ -51,9 +50,7 @@ export default function App() {
                 <div className='col'>
                     <input type='text'
                            value={atualizaTarefa.descricao}
-                           onChange={(e) => setAtualizaTarefa({...atualizaTarefa, descricao: e.target.value})}
-                           /* Melhoria código acima. Código do professor abaixo:
-                           onChange={(e) => setAtualizaTarefa({id: atualizaTarefa.id, descricao: e.target.value, finalizado: atualizaTarefa.finalizado})} */
+                           onChange={(e) => setAtualizaTarefa({...atualizaTarefa, descricao: e.target.value})} /* Melhoria código acima. Código do professor abaixo: onChange={(e) => setAtualizaTarefa({id: atualizaTarefa.id, descricao: e.target.value, finalizado: atualizaTarefa.finalizado})} */
                            className='form-control form-control-lg' />
                 </div>
                 <div className='col-auto'>
